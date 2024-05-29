@@ -15,36 +15,42 @@ Welcome to the 2048 Game project! This is a web-based implementation of the popu
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
-- 
+- [License](#license)
 <div id=""overview">
+
 ## Overview
 
 2048 is a single-player sliding tile puzzle game. The objective of the game is to slide numbered tiles on a grid to combine them and create a tile with the number 2048.
 </div>
 
 <div id="features">
-  ## Features
+  
+## Features
 
 - Dark mode interface for a sleek and modern look
 - Smooth animations for tile appearance and merging
 - Keyboard and touch controls for an optimized gaming experience on both desktop and mobile
 - Score tracking with best score saving in local storage
 - Responsive design for seamless play on various devices
+- 
 </div>
 
 <div id="demo">
-  ## Demo
+  
+## Demo
 
 ### Video Demo
 
 ### Live Demo
 
  You can play the game online [here](https://2048-game-using-reactjs.vercel.app/)
+ 
 </div>
 
 
 <div id="installation">
-  ## Installation
+  
+## Installation
 
 To set up the project locally, follow these steps:
 
@@ -69,20 +75,24 @@ npm run dev
 ```
 
 4. Open your browser and navigate to http://localhost:5173
+5. 
 </div>
 
 <div id="usage">
-  ## Usage
+  
+## Usage
 - Use the arrow keys on your keyboard to move the tiles.
 - On mobile devices, swipe in the direction you want to move the tiles.
 - Combine tiles with the same number to merge them and increase their value.
 - The game ends when there are no possible moves left or when you create a tile with the number 2048.
+- 
 </div>
 
 
 
 <div id="gaame-rules">
-  ## Game Rules
+  
+## Game Rules
 - The game is played on a 4x4 grid.
 - Each turn, a new tile (2 or 4) randomly appears in an empty spot on the board.
 - Slide tiles using the arrow keys (or swipe on mobile) to move all tiles in the chosen direction.
@@ -91,7 +101,8 @@ npm run dev
 </div>
 
 <div id="contributing">
-  ## Contributing
+  
+## Contributing
 
 Contributions are welcome! To contribute to the project:
 
@@ -112,13 +123,15 @@ git push origin feature/new-feature
 </div>
 
 <div id="acknowledgements">
-  ## Acknowledgements
+  
+## Acknowledgements
 
 The original 2048 game was created by [Gabriele Cirulli](https://github.com/gabrielecirulli/2048). This project is a recreation using modern web technologies.
 </div>
 
 <div id="contact">
-  ## Contact
+  
+## Contact
 If you have any questions or feedback, feel free to reach out to the project maintainer:
 
 - Name: Pawan Kumavat
@@ -129,7 +142,8 @@ Enjoy playing the 2048 Game! 🚀
 </div>
 
 <div id="license">
-  ## License
+  
+## License
 
 (Note: This project is free to use and does not contain any license.)
 </div>
