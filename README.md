@@ -75,7 +75,7 @@ npm run dev
 ```
 
 4. Open your browser and navigate to http://localhost:5173
-5. 
+
 </div>
 
 <div id="usage">
@@ -85,7 +85,6 @@ npm run dev
 - On mobile devices, swipe in the direction you want to move the tiles.
 - Combine tiles with the same number to merge them and increase their value.
 - The game ends when there are no possible moves left or when you create a tile with the number 2048.
-- 
 </div>
 
 
