@@ -40,6 +40,8 @@ Welcome to the 2048 Game project! This is a web-based implementation of the popu
 
 ### Video Demo
 
+https://github.com/pawantech12/2048-game-using-reactjs/assets/118673866/3c74a363-782e-421a-8b88-64a029b4593a
+
 ### Live Demo
 
  You can play the game online [here](https://2048-game-using-reactjs.vercel.app/)
