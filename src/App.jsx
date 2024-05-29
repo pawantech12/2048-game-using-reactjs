@@ -8,8 +8,9 @@ import {
 } from "./components/gameLogic";
 import { IoMdRefresh } from "react-icons/io";
 import GameOverPopup from "./components/GameOverPopup";
+
 const App = () => {
-  const [grid, setGrid] = useState(initializeGrid);
+  const [grid, setGrid] = useState(initializeGrid());
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(
     () => localStorage.getItem("bestScore") || 0
@@ -18,8 +19,10 @@ const App = () => {
   const [mergedTiles, setMergedTiles] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
   const touchStartX = useRef(null);
   const touchStartY = useRef(null);
+
   const handleKeyDown = (e) => {
     const { newGrid, newScore, newTiles, mergedTiles } = moveTiles(
       grid,
@@ -59,7 +62,9 @@ const App = () => {
     setMergedTiles([]);
     setGameOver(false);
     setGameWon(false);
+    setGameStarted(true);
   };
+
   const handleSwipe = (direction) => {
     const { newGrid, newScore, newTiles, mergedTiles } = moveTiles(
       grid,
@@ -123,38 +128,57 @@ const App = () => {
   }, [grid]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-6xl font-bold mb-4 text-gray-400">2048</h1>
-      <div className="flex mb-4 space-x-4 items-center justify-between ">
-        <div className="text-xl font-semibold bg-slate-400 rounded-md text-white py-2 px-3">
-          Score: {score}
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-900">
+      {!gameStarted ? (
+        <div className="flex flex-col items-center">
+          <h1 className="text-6xl font-bold mb-4 text-white drop-shadow-lg">
+            2048
+          </h1>
+          <button
+            className="text-2xl font-semibold bg-gray-800 hover:bg-gray-700 rounded-md text-white py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105"
+            onClick={() => setGameStarted(true)}
+          >
+            Start Game
+          </button>
         </div>
-        <div className="text-xl font-semibold bg-slate-400 rounded-md text-white py-2 px-3">
-          Best: {bestScore}
-        </div>
-        <button
-          className="text-2xl font-semibold bg-slate-400 hover:bg-slate-500 rounded-md text-white py-2 px-3"
-          onClick={handleNewGame}
-        >
-          <IoMdRefresh />
-        </button>
-      </div>
-      <Board grid={grid} newTiles={newTiles} mergedTiles={mergedTiles} />
-
-      {gameOver && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white px-8 py-4 rounded shadow-lg flex flex-col items-center">
-            <h2 className="text-4xl font-bold mb-4">Game Over</h2>
+      ) : (
+        <>
+          <h1 className="text-6xl font-bold mb-4 text-white drop-shadow-lg">
+            2048
+          </h1>
+          <div className="flex mb-4 space-x-4 items-center justify-between">
+            <div className="text-xl font-semibold bg-gray-800 rounded-md text-white py-2 px-3 shadow-lg">
+              Score: {score}
+            </div>
+            <div className="text-xl font-semibold bg-gray-800 rounded-md text-white py-2 px-3 shadow-lg">
+              Best: {bestScore}
+            </div>
             <button
-              className="mt-2 p-2 bg-slate-500 text-white rounded"
+              className="text-2xl font-semibold bg-gray-800 hover:bg-gray-700 rounded-md text-white py-2 px-3 transition duration-300 ease-in-out transform hover:scale-105"
               onClick={handleNewGame}
             >
-              Try Again
+              <IoMdRefresh />
             </button>
           </div>
-        </div>
+          <Board grid={grid} newTiles={newTiles} mergedTiles={mergedTiles} />
+          {gameOver && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-gray-800 px-8 py-4 rounded shadow-lg flex flex-col items-center">
+                <h2 className="text-4xl font-bold mb-4 text-white">
+                  Game Over
+                </h2>
+                <button
+                  className="mt-2 p-2 bg-gray-800 text-white rounded transition duration-300 ease-in-out transform hover:scale-105"
+                  onClick={handleNewGame}
+                >
+                  Try Again
+                </button>
+              </div>
+            </div>
+          )}
+          {gameWon && <GameOverPopup onNewGame={handleNewGame} />}
+        </>
       )}
-      {gameWon && <GameOverPopup onNewGame={handleNewGame} />}
     </div>
   );
 };

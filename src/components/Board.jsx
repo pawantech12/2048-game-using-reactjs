@@ -3,7 +3,7 @@ import Tile from "./Tile";
 
 const Board = ({ grid, newTiles, mergedTiles }) => {
   return (
-    <div className="grid grid-cols-4 gap-4  bg-gray-400 p-4 rounded-lg">
+    <div className="grid grid-cols-4 gap-3 bg-gray-800 p-3 rounded-lg shadow-xl">
       {grid.map((row, rowIndex) =>
         row.map((value, colIndex) => (
           <Tile
