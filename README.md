@@ -32,7 +32,6 @@ Welcome to the 2048 Game project! This is a web-based implementation of the popu
 - Keyboard and touch controls for an optimized gaming experience on both desktop and mobile
 - Score tracking with best score saving in local storage
 - Responsive design for seamless play on various devices
-- 
 </div>
 
 <div id="demo">
